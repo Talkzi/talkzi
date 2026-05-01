@@ -1,0 +1,134 @@
+/* ── RESET ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body, #root { height: 100%; overflow: hidden; }
+
+/* ──────────────────────────────────────────────────────────
+   TALKZI THEME TOKENS — dark default, light via [data-theme="light"]
+   ─────────────────────────────────────────────────────────── */
+
+:root,
+:root[data-theme="dark"] {
+  --bg:       #0b0d12;
+  --bg2:      #111318;
+  --bg3:      #181c24;
+  --bg4:      #1f2430;
+  --bg5:      #252b38;
+  --border:   rgba(255,255,255,0.07);
+  --border2:  rgba(255,255,255,0.13);
+  --text:     #eef0f6;
+  --text2:    #7c8599;
+  --text3:    #4a5268;
+
+  /* Talkzi brand purple */
+  --accent:      #6b21a8;
+  --accent-dim:  rgba(107,33,168,0.20);
+  --accent-glow: rgba(107,33,168,0.35);
+  --accent-soft: #8b3fc9;
+
+  --green:     #1fd693;
+  --green-dim: rgba(31,214,147,0.12);
+  --red:       #ff4d6d;
+  --red-dim:   rgba(255,77,109,0.12);
+  --amber:     #ffb020;
+  --amber-dim: rgba(255,176,32,0.12);
+  --purple:    #9b72ff;
+  --purple-dim:rgba(155,114,255,0.12);
+  --cyan:      #06b6d4;
+  --cyan-dim:  rgba(6,182,212,0.12);
+  --pink:      #f472b6;
+  --pink-dim:  rgba(244,114,182,0.12);
+
+  --wa:        #25D366;
+  --wa2:       #128C7E;
+  --wa3:       #075E54;
+  --wa-dim:    rgba(37,211,102,0.12);
+
+  --row-odd:   rgba(255,255,255,0.028);
+
+  --font:         'Instrument Sans', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+  --font-display: 'Syne', sans-serif;
+
+  --sidebar-w: 58px;
+  --panel-w:   288px;
+  --detail-w:  256px;
+  --radius:    10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+
+  --shadow-pop: 0 6px 24px rgba(0,0,0,0.4);
+}
+
+:root[data-theme="light"] {
+  --bg:       #f6f7fb;
+  --bg2:      #ffffff;
+  --bg3:      #f0f2f7;
+  --bg4:      #e7eaf2;
+  --bg5:      #dde1eb;
+  --border:   rgba(15,17,28,0.08);
+  --border2:  rgba(15,17,28,0.14);
+  --text:     #1a1d27;
+  --text2:    #5a6377;
+  --text3:    #8990a4;
+
+  --accent:      #6b21a8;
+  --accent-dim:  rgba(107,33,168,0.10);
+  --accent-glow: rgba(107,33,168,0.20);
+  --accent-soft: #8b3fc9;
+
+  --green:     #15a877;
+  --green-dim: rgba(21,168,119,0.12);
+  --red:       #e23a5b;
+  --red-dim:   rgba(226,58,91,0.10);
+  --amber:     #d68a00;
+  --amber-dim: rgba(214,138,0,0.13);
+  --purple:    #7c4dff;
+  --purple-dim:rgba(124,77,255,0.10);
+  --cyan:      #0892b3;
+  --cyan-dim:  rgba(8,146,179,0.10);
+  --pink:      #d8489b;
+  --pink-dim:  rgba(216,72,155,0.10);
+
+  --wa:        #128C7E;
+  --wa2:       #075E54;
+  --wa3:       #054e44;
+  --wa-dim:    rgba(18,140,126,0.10);
+
+  --row-odd:   rgba(15,17,28,0.025);
+
+  --shadow-pop: 0 6px 20px rgba(15,17,28,0.10);
+}
+
+/* ── BASE ── */
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  transition: background .25s ease, color .25s ease;
+}
+
+/* ── SCROLLBARS ── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+* { scrollbar-width: thin; scrollbar-color: var(--border2) transparent; }
+
+/* ── SELECTION ── */
+::selection { background: var(--accent-dim); color: var(--accent); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeIn   { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes slideIn  { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: none; } }
+@keyframes slideUp  { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes spin     { to { transform: rotate(360deg); } }
+@keyframes pulse    { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+@keyframes msgIn    { from { opacity: 0; transform: translateY(8px) scale(0.97); } to { opacity: 1; transform: none; } }
+@keyframes rowIn    { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+
+.animate-fade  { animation: fadeIn  0.2s ease both; }
+.animate-slide { animation: slideIn 0.2s ease both; }
+.animate-up    { animation: slideUp 0.2s ease both; }
+.animate-msg   { animation: msgIn   0.18s ease both; }
